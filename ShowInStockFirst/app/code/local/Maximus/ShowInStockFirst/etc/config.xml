@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config> 
+    <modules>
+        <Maximus_ShowInStockFirst>
+            <version>0.0.1</version>
+        </Maximus_ShowInStockFirst>
+    </modules>
+	<global>
+		<models>
+			<catalog_resource>
+				<rewrite>
+					<product_collection>Maximus_ShowInStockFirst_Catalog_Model_Resource_Product_Collection</product_collection>
+				</rewrite>
+			</catalog_resource>
+		</models>
+		<blocks>
+			<catalog>
+				<rewrite>
+					<product_list_toolbar>Maximus_ShowInStockFirst_Catalog_Block_Product_List_Toolbar</product_list_toolbar>
+				</rewrite>
+			</catalog>
+		</blocks>
+    </global>
+</config>

@@ -15,6 +15,7 @@ Settings
 =
 
 Module settings located at System -> Configuration -> Catalog (Section) -> Show In Stock First Module
+
 1. Use in search results - Whether to use module when displaying search results
 
 License

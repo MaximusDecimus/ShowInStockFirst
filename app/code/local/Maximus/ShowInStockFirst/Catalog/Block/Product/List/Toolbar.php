@@ -10,6 +10,9 @@ class Maximus_ShowInStockFirst_Catalog_Block_Product_List_Toolbar extends Mage_C
      */
     public function setCollection($collection)
     {
+		$route = Mage::app()->getRequest()->getRouteName();
+		$use_in_search_results = Mage::getStoreConfig('maximus_showinstockfirst/general/use_in_search_results');
+
         $this->_collection = $collection;
 
         $this->_collection->setCurPage($this->getCurrentPage());
@@ -20,7 +23,9 @@ class Maximus_ShowInStockFirst_Catalog_Block_Product_List_Toolbar extends Mage_C
             $this->_collection->setPageSize($limit);
         }
         if ($this->getCurrentOrder()) {
-		$this->_collection->joinField('inventory_in_stock', 'cataloginventory_stock_item', 'is_in_stock', 'product_id=entity_id','is_in_stock>=0', 'left')->setOrder('inventory_in_stock', 'desc');
+			if($route != 'catalogsearch' || $use_in_search_results){
+				$this->_collection->joinField('inventory_in_stock', 'cataloginventory_stock_item', 'is_in_stock', 'product_id=entity_id','is_in_stock>=0', 'left')->setOrder('inventory_in_stock', 'desc');
+			}
             $this->_collection->setOrder($this->getCurrentOrder(), $this->getCurrentDirection());
         }
         return $this;

@@ -5,6 +5,27 @@
             <version>0.0.1</version>
         </Maximus_ShowInStockFirst>
     </modules>
+	<adminhtml>
+		<acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+		                    <children>
+		                        <config>
+		                            <children>
+		                                <maximus_showinstockfirst module="maximus_showinstockfirst">
+		                                    <title>Show In Stock First Module</title>
+		                                </maximus_showinstockfirst>
+		                            </children>
+		                        </config>
+		                    </children>
+		                </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
 	<global>
 		<models>
 			<catalog_resource>
@@ -20,5 +41,10 @@
 				</rewrite>
 			</catalog>
 		</blocks>
+		<helpers>
+			<maximus_showinstockfirst>
+				<class>Maximus_ShowInStockFirst_Helper</class>
+			</maximus_showinstockfirst>
+		</helpers>
     </global>
 </config>
